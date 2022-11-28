@@ -15,6 +15,7 @@
 ✅ Typescript <br>
 ✅ Styled-components <br>
 ✅ AsyncStorage <br>
+✅ React Query <br>
 
 ## <h4 align="center"> 
     🚀 Projeto concluido
