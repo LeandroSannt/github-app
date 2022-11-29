@@ -33,7 +33,7 @@ const {Navigator,Screen} = createBottomTabNavigator();
           })}
         >
         <Screen 
-         name="Home" component={Home} />
+         name="Home"  component={Home} />
 
         <Screen 
          name="Favorites" component={Favorites} />

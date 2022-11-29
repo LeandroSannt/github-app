@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import { useQuery } from 'react-query';
 
 import { Container, Title } from '../../../styles';
@@ -12,18 +12,18 @@ import { BlackContainer, BlankMessage, Content, ListUsers, Octocat } from './sty
 const List:React.FC = () =>{
   const [users, setUsers] = useState<IUser[]>([])
 
-  const {data:userss} = useQuery<IUser[]>(['users',users], async () =>{
+  const {data:usersData} = useQuery<IUser[]>(['users',users], async () =>{
     return users
-})
+  })
  
-  const getUsers = async (user:string) =>{
+  const getUsers = useCallback(async (user:string) =>{
     if(!user){
       setUsers([])
       return
     }
    const response = await api.get(`search/users?q=${user}`)
    setUsers(response.data.items)
-  }
+  },[])
 
   const renderItem = (props:any) => {
     return(
@@ -31,21 +31,22 @@ const List:React.FC = () =>{
     )
   }
 
+
   return(
     <>
       <Header/>
       <Container>
         <InputFilter getUser={getUsers} />
         <Content>
-          {!!userss?.length ? 
+          {!!usersData?.length ? 
           <>
-          <Title>Usuários encontrados </Title>
-          <ListUsers
-          showsVerticalScrollIndicator={false}
-          data={userss}
-          renderItem={renderItem}
-          keyExtractor={(item: { id: { toString: () => number; }; }) => item?.id.toString()}
-          />
+            <Title>Usuários encontrados </Title>
+            <ListUsers
+            showsVerticalScrollIndicator={false}
+            data={usersData}
+            renderItem={renderItem}
+            keyExtractor={(item: { id: { toString: () => number; }; }) => item?.id.toString()}
+            />
           </>
           :
           <BlackContainer>

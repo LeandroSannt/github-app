@@ -32,7 +32,7 @@ export function InputFilter({getUser}:InputProps) {
         onPress={handleSearchUser}
       >
         <Add>
-        <Icon  name="search" size={24} color="#fff" />
+          <Icon  name="search" size={24} color="#fff" />
         </Add>
       </Button>
     </Container>

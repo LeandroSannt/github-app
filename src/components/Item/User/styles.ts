@@ -19,7 +19,7 @@ align-items: center;
 `
 
 export const Avatar = styled.Image`
-width: 50px;
+width: 60px;
 height: 55px;
 border-radius: 10px;
 margin-right: 20px;

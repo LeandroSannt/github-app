@@ -9,7 +9,7 @@ transition: all 400ms;
 flex-direction: row;
 background-color:#f5f5f5;
 min-height: 80px;
-padding:5px 20px;
+padding:5px 25px 5px 15px;
 flex-direction: row;
 margin-bottom: 10px;
 `
